@@ -91,8 +91,8 @@ const Buttons = (props) => {
         <Button onClick={goHome}> Cancel </Button>
         { 
           props.editing
-          ? <Button onClick={() => console.log(inputsState) || onSave(inputsState)}>Save</Button>
-          : <Button onClick={() => console.log(inputsState) || onCreate(inputsState)}>Create</Button>
+          ? <Button onClick={() => onSave(inputsState)}>Save</Button>
+          : <Button onClick={() => onCreate(inputsState)}>Create</Button>
         }
       </StyleButtons>
     )}/>
