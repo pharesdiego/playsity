@@ -1,8 +1,10 @@
-const applyFilter = (clips, word) => {
+const applyFilter = (clips = [], filter = '') => {
+  if(!filter) return clips;
+  filter = filter.toLowerCase().trim();
   return clips
           .filter(clip =>
-                    clip.name.includes(word) || 
-                    clip.tags.split(',').some(tag => tag.includes(word))
+                    clip.name.toLowerCase().includes(filter) || 
+                    clip.tags.split(',').some(tag => tag.toLowerCase().includes(filter))
                   );
 }
 

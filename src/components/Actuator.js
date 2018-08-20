@@ -1,9 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { boundedPlaylistClipCreate, boundedPlaylistClipEdit } from './../redux/boundedActions';
+import Manager from './Manager';
 import getClipById from './../utils/getClipById';
+import { Flex } from './Styles';
+import Button from './Button';
+import { withRouter } from 'react-router-dom';
+import {
+  boundedPlaylistClipCreate as clipCreate, 
+  boundedPlaylistClipEdit as clipEdit,
+  boundedVideoUrlUpdate as urlUpdate
+} from './../redux/boundedActions';
 
 const Container = styled.div`
   width: 100%;
@@ -14,16 +22,13 @@ const Container = styled.div`
   left: 0;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.70);
+  background: linear-gradient(transparent, black);
 `;
 
-const Section = styled.div`
+const Section = Flex.extend`
+  flex-direction: column;
   flex: 0.7;
   padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: white;
 `;
 
@@ -65,133 +70,152 @@ const MaxWidth = styled.div`
   }
 `;
 
-const Buttons = styled.div`
-  display: flex;
-  justify-content: center;
+const StyleButtons = Flex.extend`
   & button:first-child {
     margin-right: 20px;
-    color: red;
   }
-  & button {
-    padding: 5px 10px;
-    box-shadow: 0px 0px 3px gray;
+  & button:last-child {
+    color: white;
+    background: linear-gradient(45deg, #681484, #ff7a7a);
   }
 `;
-// this component can be reused here and in the other search-filter
-// it just need to handle the inputs, so div {props.render(value)}
-// the state will be ...this.props and the inputs need to have a name equal to the props, and thats it!
-class InputsManager  extends Component {
-  state = {
-    name: this.props.name || '',
-    start: this.props.start  || '',
-    end: this.props.end || '',
-    tags: this.props.tags || ''
-  }
 
-  handleInput = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-  
-  render() {
-    const { name, start, end, tags } = this.state;
-    return (
-      <MaxWidth onInput={ this.handleInput }>
-        <Title>
-          { this.props.editing ? 'Edit clip' : 'Add a new clip' }
-        </Title>
-        <Label>
-          <span>Name</span>
-          <Input
-            defaultValue={ name }
-            name = 'name'/>
-        </Label>
-        <Label>
-          <span>Start time</span>
-          <Input
-            defaultValue={ start }
-            name='start'
-            placeholder='in seconds'
-            maxLength='2'/>
-        </Label>
-        <Label>
-          <span>End time</span>
-          <Input
-            defaultValue={ end }
-            name='end'
-            placeholder='in seconds'
-            maxLength='2'/>
-        </Label>
-        <Label>
-          <span>Tags</span>
-          <Input
-            defaultValue={ tags }
-            name='tags'
-            placeholder='separeted by commas'/>
-        </Label>
-        <Buttons>
-          <Route render={({ history }) => (
-            <Fragment>
-              <button onClick={() => history.push('/')}>
-                Cancel
-              </button>
-              { 
-                this.props.editing
-                ? <button
-                    onClick={() => {
-                      boundedPlaylistClipEdit({id: this.props.id, ...this.state})
-                      history.push('/');
-                    }}>
-                    Save
-                  </button>
-                : <button
-                    onClick={() => {
-                      boundedPlaylistClipCreate(this.state)
-                      history.push('/');
-                    }}>
-                    Create
-                  </button>
-              }
-            </Fragment>
-          )}/>
-        </Buttons>
-      </MaxWidth>
-    )
-  }
+/** 
+ * @description This component represent the buttons for creating or saving changes in a Clip component
+ */
+const Buttons = (props) => {
+  let { onSave, onCreate, goHome, ...inputsState } = props;
+  return (
+    <Route render={({ history }) => (
+      <StyleButtons>
+        <Button onClick={goHome}> Cancel </Button>
+        { 
+          props.editing
+          ? <Button onClick={() => console.log(inputsState) || onSave(inputsState)}>Save</Button>
+          : <Button onClick={() => console.log(inputsState) || onCreate(inputsState)}>Create</Button>
+        }
+      </StyleButtons>
+    )}/>
+  )
 }
-// this component needs to be stateless
-class Actuator extends Component {
 
-  render() {
-    const path = this.props.match.params[0];
-    const id = this.props.match.params.id;
-    const editing = (path === 'edit' && id !== undefined);
-    const adding = path === 'add';
+/**
+ * @description These are four input that are displayed for editing or create a Clip component
+ * @example
+ * name   ____
+ * start  ____
+ * end    ____
+ * tags   ____
+ */
+const Body = (props) => {
+  const { name, start, end, tags, updateState } = props;
+  return (
+    <MaxWidth onInput={ (e) => updateState(e.target.name, e.target.value) }>
+      <Label>
+        <span>Name</span>
+        <Input
+          defaultValue={ name }
+          name = 'name'/>
+      </Label>
+      <Label>
+        <span>Start time</span>
+        <Input
+          defaultValue={ start }
+          name='start'
+          placeholder='in seconds'/>
+      </Label>
+      <Label>
+        <span>End time</span>
+        <Input
+          defaultValue={ end }
+          name='end'
+          placeholder='in seconds'/>
+      </Label>
+      <Label>
+        <span>Tags</span>
+        <Input
+          defaultValue={ tags }
+          name='tags'
+          placeholder='separeted by commas'/>
+      </Label>
+    </MaxWidth>
+  )
+}
 
-    // if the path is indication that it is neither editing nor adding, then return null because path is wrong
-    if(!editing && !adding) {
-      return null;
-    }
+const Inputs = (props) => {
+  const { updateState, onSave, onCreate, inputsState, editing, id, goHome } = props;
+  return (
+    <Fragment>
+      <Title>{ editing ? 'Edit clip' : 'Add a new clip' }</Title>
+      <Body updateState={updateState} {...inputsState}/>
+      <Buttons
+        id={id}
+        onSave={onSave}
+        onCreate={onCreate}
+        goHome={goHome}
+        {...inputsState}/>
+    </Fragment>
+  )
+}
 
-    // this doesn't assume there is an actual Id or that we are on /edit,
-    // if the id is undefined it will just return an empty object
-    const clipProperties = getClipById(this.props.playlist, id);
+const InputsWithManager = (props) => {
+  return (
+    <Manager 
+      initialState={props.id ? props : { name: '', start: '', end: '', tags: '' }}
+      render={(state, updateState) => (
+        <Inputs {...props} inputsState={state} updateState={updateState} />
+      )}
+    />
+  )
+}
 
-    return (
-      <Container>
-        <Link to='/' style={{ flex: '1' }}/>
-        <Section>
-          <InputsManager editing={editing} {...clipProperties}/>
-        </Section>
-      </Container>
-    )
+const Actuator = (props) => {
+  const { match, playlist, history } = props;
+  const path = match.params[0];
+  const id = match.params.id;
+  const editing = (path === 'edit' && id !== undefined);
+  const adding = path === 'add';
+
+  // if the path is indication that it is neither editing nor adding, then return null because path is wrong
+  if(!editing && !adding) return null;
+
+  // this doesn't assume there is an actual Id or that we are on /edit,
+  // if the id is undefined it will just return an empty object
+  const clipProps = getClipById(playlist.clips, id);
+
+  const goHome = () => history.push('/playsity/');
+
+  const onSave = (data) => {
+    clipEdit(data);
+    goHome();
+    // we'll only update video's url if this clip is the one selected (the one currently playing)
+    if(playlist.currentClip === id) urlUpdate(data.start, data.end);
   }
+
+  const onCreate = (data) => {
+    clipCreate(data);
+    goHome();
+  }
+
+  return (
+    <Container>
+      <Link to='/playsity/' style={{ flex: '1' }}/>
+      <Section>
+        <InputsWithManager
+          editing={editing}
+          playlist={playlist}
+          onSave={onSave}
+          onCreate={onCreate}
+          goHome={goHome}
+          {...clipProps}/>
+      </Section>
+    </Container>
+  )
 }
 
 const mapStateToProps = ({ playlist }) => ({
   playlist
 });
 
-export default connect(mapStateToProps)(Actuator);
+export default connect(mapStateToProps)(withRouter(Actuator));
 export { Actuator }; 

@@ -7,10 +7,11 @@ import {
   PLAYLIST_CLIP_DELETE
 } from './../reducers/actions';
 
-export const boundedVideoUrlUpdate = (url) => {
+export const boundedVideoUrlUpdate = (start, end) => {
   store.dispatch({
     type: VIDEO_URL_UPDATE,
-    url
+    start,
+    end
   })
 };
 
@@ -19,8 +20,8 @@ export const boundedPlaylistClipCreate = ({ name, start, end, tags }) => {
     type: PLAYLIST_CLIP_CREATE,
     start: start,
     end: end,
-    name,
-    tags
+    name: name.trim(),
+    tags: tags.trim()
   })
 };
 
@@ -34,10 +35,17 @@ export const boundedPlaylistClipDelete = (id) => {
 export const boundedPlaylistClipEdit = ({ id, name, start, end, tags}) => {
   store.dispatch({
     type: PLAYLIST_CLIP_EDIT,
+    tags: tags.trim(),
+    name: name.trim(),
     id,
-    name,
     start,
-    end,
-    tags
+    end
+  })
+}
+
+export const boundedPlaylistCurrentClipUpdate = (id) => {
+  store.dispatch({
+    type: PLAYLIST_CURRENT_CLIP_UPDATE,
+    id
   })
 }

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> <Button> <<< Must render properly with passed props 1`] = `
+Object {
+  "bg": "black",
+  "color": "white",
+}
+`;

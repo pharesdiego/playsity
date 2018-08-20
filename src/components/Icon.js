@@ -3,13 +3,16 @@ import styled from 'styled-components';
 
 const IconWrapper = styled.div`
   cursor: pointer;
-  vertical-align: middle;
-  display: inherit;
+  transition: all 0.2s;
+  & > i {
+    vertical-align: middle;
+    display: inherit;
+  }
 `;
 
-const Icon = ({ children , ...rest }) => (
+const Icon = ({ children, size = '24px', ...rest }) => (
   <IconWrapper {...rest}>
-    <i className='material-icons'>{ children }</i>
+    <i className='material-icons' style={{fontSize: size}}>{ children }</i>
   </IconWrapper>
 );
 

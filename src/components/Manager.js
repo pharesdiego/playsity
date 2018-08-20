@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
-// this component helps us handle inputs states
+// this component helps us manage state
 class Manager extends Component {
   state = {
-    ...this.props.hydrate
+    ...this.props.initialState
   }
 
-  onInput = (event) => {
+  updateState = (prop, value) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [prop]: value
     })
   }
 
   render() {
-    return this.props.render(this.state, this.onInput);
+    return this.props.render(this.state, this.updateState);
   }
 }
 

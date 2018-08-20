@@ -30,3 +30,15 @@ I can make some components like withInputManeger
 so i can make  ActuatorWithManager, it will just be an api to detect the onInputs event,
 also i dont need to put the handleInput in a div in the InputManager, i can pass that fn
 to the children as well and it can decide where to put it o.o
+
+
+DESIGN BUTTONS
+FORWARD BACKWARD
+SHOW TAGS ON CLIP
+
+COMMENT EVERYTHIN WITH /** @description etc*
+PONER COMAS A TODO Y BIEN REVISAR LOS RESULT QUE TENGAN EL ESPACIO ETC
+
+NOMBRES MUY LARGOS EN CLIPS
+
+FIX ICONS POSITION

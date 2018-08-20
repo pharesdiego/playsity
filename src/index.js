@@ -8,7 +8,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const render = () => {
-  console.log(JSON.stringify(store.getState(), null, 2));
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
@@ -19,10 +18,10 @@ const render = () => {
 };
 
 store.subscribe(() => {
-  try{
-    window.localStorage.setItem('store', JSON.stringify(store.getState()))
+  try {
+    window.localStorage.setItem('PLAYSITY_STORE', JSON.stringify(store.getState()))
   }
-  catch(e){
+  catch(e) {
     console.log('your browser cant handle window.localStorage');
   }
   render();

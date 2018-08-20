@@ -1,5 +1,7 @@
-const getClipById = (playlist, id) => {
-  return id ? playlist.clips.find(clip => clip.id === id) : {};
+const getClipById = (clips = [], id = false) => {
+  if(!id) return {};
+  let clip = clips.find(clip => clip.id === id);
+  return clip || {};
 }
 
 export default getClipById;

@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import VideoPlayer from './components/VideoPlayer';
 import Playlist from './components/Playlist';
-import PlaylistBody from './components/PlaylistBody';
 import Actuator from './components/Actuator';
+import Manager from './components/Manager';
 
 const Title = styled.div`
   width: 100%;
@@ -15,17 +15,28 @@ const Title = styled.div`
   font-size: calc(5vh + 8px);
 `;
 
+// Playlist will have its own manager, but also will receive props from another manager below
+// because Playlist needs to be aware of currentTime on VideoPlayer
+const PlaylistWithManager = (props) => {
+  return (
+    <Manager initialState={{ filterView: false }} render={(state, updateState) => (
+      <Playlist {...state} {...props} updateState={updateState}/>
+    )}/>
+  )
+}
+
 class App extends Component {
   render() {
     return (
       <Fragment>
         <Title>Playsity</Title>
-        <VideoPlayer render={(currentTime) => (
-          <Playlist render={(state, handlers) => (
-            <PlaylistBody currentTime={ currentTime } {...state} {...handlers} />
-          )}/>
+        <Manager render={(state, updateState) => (
+          <Fragment>
+            <VideoPlayer updateState={updateState}/>
+            <PlaylistWithManager {...state} />
+          </Fragment>
         )}/>
-        <Route path='/(add|edit)/:id?' component={ Actuator } exact />
+        <Route path='/playsity/(add|edit)/:id?' component={ Actuator } exact />
       </Fragment>
     );
   }

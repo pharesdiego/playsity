@@ -7,22 +7,26 @@ import {
 
 import initialState from './../initialState';
 import key from './../../utils/key';
+import rangeValidator from './../../utils/rangeValidator';
 
-const appState = (JSON.parse(window.localStorage.getItem('store')) || initialState).playlist;
+const appState = (JSON.parse(window.localStorage.getItem('PLAYSITY_STORE')) || initialState).playlist;
 
 const playlistReducer = (state = appState, action) => {
   switch(action.type) {
     case PLAYLIST_CLIP_CREATE:
+      let { start, end, name, tags, TEST_ID } = action;
+      let id = TEST_ID || key();
+      let [min, max] = rangeValidator(+start, +end);
       return {
         ...state,
         clips: [
           ...state.clips, 
           {
-            id: key(),
-            name: action.name,
-            start: action.start,
-            end: action.end,
-            tags: action.tags
+            id,
+            name: name || id,
+            start: (min+''),
+            end: (max+''),
+            tags: tags || ''
           }
         ]
       }
@@ -40,15 +44,30 @@ const playlistReducer = (state = appState, action) => {
           ...state.clips.filter(clip => action.id !== clip.id)
         ]
       }
+
+    case PLAYLIST_CURRENT_CLIP_UPDATE:
+      return {
+        ...state,
+        currentClip: action.id
+      }
     default:
       return state;
   }
 }
 
 const editClip = (state, { id, name, start, end, tags }) => {
+  let [min, max] = rangeValidator(+start, +end);
   return state
           .clips
-          .map(clip => clip.id === id ? { id, name, start, end, tags } : clip);
+          .map(clip => clip.id === id ? (
+            {
+              id, 
+              name: name || id, 
+              start: (min+''), 
+              end: (max+''), 
+              tags 
+            }
+          ) : clip);
 }
 
 export default playlistReducer;

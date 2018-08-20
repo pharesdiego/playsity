@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> <Manager> <<< Must update state with updateState function and send it to child(s) 1`] = `
+<MockWithManager>
+  <Manager
+    initialState={
+      Object {
+        "passing": "false",
+      }
+    }
+    render={[Function]}
+  >
+    <Mock
+      onClick={[Function]}
+      passing="true"
+    >
+      <button
+        onClick={[Function]}
+        passing="true"
+      />
+    </Mock>
+  </Manager>
+</MockWithManager>
+`;

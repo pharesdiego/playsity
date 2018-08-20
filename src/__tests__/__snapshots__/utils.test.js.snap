@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> Utils Tests <<< applyFilter 1`] = `
+Array [
+  Object {
+    "end": "52",
+    "id": null,
+    "name": "Full Video",
+    "start": "0",
+    "tags": "",
+  },
+  Object {
+    "end": "11",
+    "id": "a21e19da2dc",
+    "name": "Intro",
+    "start": "0",
+    "tags": "Snow, Walking, Mountains",
+  },
+  Object {
+    "end": "45",
+    "id": "9ea3abcc842",
+    "name": "A dangerous quest",
+    "start": "35",
+    "tags": "",
+  },
+]
+`;
+
+exports[`>>> Utils Tests <<< applyFilter 2`] = `
+Array [
+  Object {
+    "end": "11",
+    "id": "a21e19da2dc",
+    "name": "Intro",
+    "start": "0",
+    "tags": "Snow, Walking, Mountains",
+  },
+]
+`;
+
+exports[`>>> Utils Tests <<< applyFilter 3`] = `
+Array [
+  Object {
+    "end": "45",
+    "id": "9ea3abcc842",
+    "name": "A dangerous quest",
+    "start": "35",
+    "tags": "",
+  },
+]
+`;
+
+exports[`>>> Utils Tests <<< getClipById 1`] = `
+Object {
+  "end": "11",
+  "id": "a21e19da2dc",
+  "name": "Intro",
+  "start": "0",
+  "tags": "Snow, Walking, Mountains",
+}
+`;
+
+exports[`>>> Utils Tests <<< getClipById 2`] = `
+Object {
+  "end": "45",
+  "id": "9ea3abcc842",
+  "name": "A dangerous quest",
+  "start": "35",
+  "tags": "",
+}
+`;
+
+exports[`>>> Utils Tests <<< getClipQueue 1`] = `
+Object {
+  "next": Object {
+    "end": "11",
+    "id": "a21e19da2dc",
+    "name": "Intro",
+    "start": "0",
+    "tags": "Snow, Walking, Mountains",
+  },
+  "previous": null,
+}
+`;
+
+exports[`>>> Utils Tests <<< getClipQueue 2`] = `
+Object {
+  "next": Object {
+    "end": "45",
+    "id": "9ea3abcc842",
+    "name": "A dangerous quest",
+    "start": "35",
+    "tags": "",
+  },
+  "previous": Object {
+    "end": "52",
+    "id": null,
+    "name": "Full Video",
+    "start": "0",
+    "tags": "",
+  },
+}
+`;
+
+exports[`>>> Utils Tests <<< getClipQueue 3`] = `
+Object {
+  "next": null,
+  "previous": Object {
+    "end": "11",
+    "id": "a21e19da2dc",
+    "name": "Intro",
+    "start": "0",
+    "tags": "Snow, Walking, Mountains",
+  },
+}
+`;

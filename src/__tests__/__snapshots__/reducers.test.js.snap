@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CLIP_CREATE 1`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "11",
+      "id": "a21e19da2dc",
+      "name": "Intro",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+    Object {
+      "end": "52",
+      "id": "1",
+      "name": "Final Scene",
+      "start": "40",
+      "tags": "final, credits",
+    },
+  ],
+  "currentClip": null,
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CLIP_CREATE 2`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "11",
+      "id": "a21e19da2dc",
+      "name": "Intro",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+    Object {
+      "end": "0",
+      "id": "1",
+      "name": "1",
+      "start": "0",
+      "tags": "",
+    },
+  ],
+  "currentClip": null,
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CLIP_CREATE 3`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "11",
+      "id": "a21e19da2dc",
+      "name": "Intro",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+    Object {
+      "end": "52",
+      "id": "1",
+      "name": "1",
+      "start": "0",
+      "tags": "",
+    },
+  ],
+  "currentClip": null,
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CLIP_DELETE 1`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "11",
+      "id": "a21e19da2dc",
+      "name": "Intro",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains",
+    },
+  ],
+  "currentClip": null,
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CLIP_EDIT 1`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "12",
+      "id": "a21e19da2dc",
+      "name": "Intro Edited",
+      "start": "1",
+      "tags": "Snow, Walking, Mountains, Running",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+  ],
+  "currentClip": null,
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CLIP_EDIT 2`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "52",
+      "id": "a21e19da2dc",
+      "name": "Time Edited",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains, Running",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+  ],
+  "currentClip": null,
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CURRENT_CLIP_UPDATE 1`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "11",
+      "id": "a21e19da2dc",
+      "name": "Intro",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+  ],
+  "currentClip": "9ea3abcc842",
+}
+`;
+
+exports[`>>> Playlist Reducers <<< PLAYLIST_CURRENT_CLIP_UPDATE 2`] = `
+Object {
+  "clips": Array [
+    Object {
+      "end": "52",
+      "id": null,
+      "name": "Full Video",
+      "start": "0",
+      "tags": "",
+    },
+    Object {
+      "end": "11",
+      "id": "a21e19da2dc",
+      "name": "Intro",
+      "start": "0",
+      "tags": "Snow, Walking, Mountains",
+    },
+    Object {
+      "end": "45",
+      "id": "9ea3abcc842",
+      "name": "A dangerous quest",
+      "start": "35",
+      "tags": "",
+    },
+  ],
+  "currentClip": "changed current clip",
+}
+`;
+
+exports[`>>> Videoplayer Reducers <<< VIDEO_URL_UPDATE 1`] = `
+Object {
+  "url": "/video.mp4#t=0,15",
+}
+`;

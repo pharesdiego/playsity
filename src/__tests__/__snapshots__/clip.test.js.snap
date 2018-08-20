@@ -1,0 +1,417 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>> Clip <<< onClick handler must work and update isPlaying state to true 1`] = `
+<ClipWithManager>
+  <Manager
+    initialState={
+      Object {
+        "data": Object {
+          "end": "15",
+          "isPlaying": false,
+          "name": "test",
+          "start": "0",
+          "tags": "testing, tag",
+          "time": "0",
+        },
+      }
+    }
+    render={[Function]}
+  >
+    <Clip
+      end="15"
+      isPlaying={true}
+      name="test"
+      onEdit={[Function]}
+      onPlay={[Function]}
+      start="0"
+      tags="testing, tag"
+      time="0"
+    >
+      <styled.div
+        isPlaying={true}
+      >
+        <div
+          className="sc-htpNat Dszuf"
+        >
+          <styled.div>
+            <div
+              className="sc-bxivhb bKvnmv"
+            >
+              <styled.div>
+                <div
+                  className="sc-EHOje hTYpxf"
+                >
+                  test
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-ifAKCX cIZoKD"
+                >
+                  0s
+                  <Icon>
+                    <styled.div>
+                      <div
+                        className="sc-bdVaJa qyge"
+                      >
+                        <i
+                          className="material-icons"
+                          style={
+                            Object {
+                              "fontSize": "24px",
+                            }
+                          }
+                        >
+                          chevron_right
+                        </i>
+                      </div>
+                    </styled.div>
+                  </Icon>
+                  15s
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-ifAKCX cIZoKD"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-ifAKCX cIZoKD"
+                    >
+                      <Icon
+                        onClick={[Function]}
+                      >
+                        <styled.div
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="sc-bdVaJa qyge"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="material-icons"
+                              style={
+                                Object {
+                                  "fontSize": "24px",
+                                }
+                              }
+                            >
+                              play_circle_outline
+                            </i>
+                          </div>
+                        </styled.div>
+                      </Icon>
+                    </div>
+                  </styled.div>
+                  <styled.div>
+                    <div
+                      className="sc-ifAKCX cIZoKD"
+                    >
+                      <Icon
+                        onClick={[Function]}
+                      >
+                        <styled.div
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="sc-bdVaJa qyge"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="material-icons"
+                              style={
+                                Object {
+                                  "fontSize": "24px",
+                                }
+                              }
+                            >
+                              edit
+                            </i>
+                          </div>
+                        </styled.div>
+                      </Icon>
+                    </div>
+                  </styled.div>
+                  <styled.div>
+                    <div
+                      className="sc-ifAKCX cIZoKD"
+                    >
+                      <Icon>
+                        <styled.div>
+                          <div
+                            className="sc-bdVaJa qyge"
+                          >
+                            <i
+                              className="material-icons"
+                              style={
+                                Object {
+                                  "fontSize": "24px",
+                                }
+                              }
+                            >
+                              delete_outline
+                            </i>
+                          </div>
+                        </styled.div>
+                      </Icon>
+                    </div>
+                  </styled.div>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+          <styled.div>
+            <div
+              className="sc-gzVnrw jfohoA"
+            >
+              <styled.span
+                key="testing0"
+              >
+                <span
+                  className="sc-htoDjs ioRxXM"
+                >
+                  testing
+                </span>
+              </styled.span>
+              <styled.span
+                key=" tag1"
+              >
+                <span
+                  className="sc-htoDjs ioRxXM"
+                >
+                  tag
+                </span>
+              </styled.span>
+            </div>
+          </styled.div>
+          <styled.div
+            isPlaying={true}
+            style={
+              Object {
+                "width": "0%",
+              }
+            }
+          >
+            <div
+              className="sc-bZQynM gIQXtb"
+              style={
+                Object {
+                  "width": "0%",
+                }
+              }
+            />
+          </styled.div>
+        </div>
+      </styled.div>
+    </Clip>
+  </Manager>
+</ClipWithManager>
+`;
+
+exports[`>>> Clip <<< onEdit handler must work and edit state 1`] = `
+<ClipWithManager>
+  <Manager
+    initialState={
+      Object {
+        "data": Object {
+          "end": "15",
+          "isPlaying": false,
+          "name": "test",
+          "start": "0",
+          "tags": "testing, tag",
+          "time": "0",
+        },
+      }
+    }
+    render={[Function]}
+  >
+    <Clip
+      end="20"
+      isPlaying={false}
+      name="edited name"
+      onEdit={[Function]}
+      onPlay={[Function]}
+      start="3"
+      tags="testing, edited"
+      time="0"
+    >
+      <styled.div
+        isPlaying={false}
+      >
+        <div
+          className="sc-htpNat OPVLN"
+        >
+          <styled.div>
+            <div
+              className="sc-bxivhb bKvnmv"
+            >
+              <styled.div>
+                <div
+                  className="sc-EHOje hTYpxf"
+                >
+                  edited name
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-ifAKCX cIZoKD"
+                >
+                  3s
+                  <Icon>
+                    <styled.div>
+                      <div
+                        className="sc-bdVaJa qyge"
+                      >
+                        <i
+                          className="material-icons"
+                          style={
+                            Object {
+                              "fontSize": "24px",
+                            }
+                          }
+                        >
+                          chevron_right
+                        </i>
+                      </div>
+                    </styled.div>
+                  </Icon>
+                  20s
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-ifAKCX cIZoKD"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-ifAKCX cIZoKD"
+                    >
+                      <Icon
+                        onClick={[Function]}
+                      >
+                        <styled.div
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="sc-bdVaJa qyge"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="material-icons"
+                              style={
+                                Object {
+                                  "fontSize": "24px",
+                                }
+                              }
+                            >
+                              play_circle_outline
+                            </i>
+                          </div>
+                        </styled.div>
+                      </Icon>
+                    </div>
+                  </styled.div>
+                  <styled.div>
+                    <div
+                      className="sc-ifAKCX cIZoKD"
+                    >
+                      <Icon
+                        onClick={[Function]}
+                      >
+                        <styled.div
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="sc-bdVaJa qyge"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="material-icons"
+                              style={
+                                Object {
+                                  "fontSize": "24px",
+                                }
+                              }
+                            >
+                              edit
+                            </i>
+                          </div>
+                        </styled.div>
+                      </Icon>
+                    </div>
+                  </styled.div>
+                  <styled.div>
+                    <div
+                      className="sc-ifAKCX cIZoKD"
+                    >
+                      <Icon>
+                        <styled.div>
+                          <div
+                            className="sc-bdVaJa qyge"
+                          >
+                            <i
+                              className="material-icons"
+                              style={
+                                Object {
+                                  "fontSize": "24px",
+                                }
+                              }
+                            >
+                              delete_outline
+                            </i>
+                          </div>
+                        </styled.div>
+                      </Icon>
+                    </div>
+                  </styled.div>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+          <styled.div>
+            <div
+              className="sc-gzVnrw jfohoA"
+            >
+              <styled.span
+                key="testing0"
+              >
+                <span
+                  className="sc-htoDjs ioRxXM"
+                >
+                  testing
+                </span>
+              </styled.span>
+              <styled.span
+                key=" edited1"
+              >
+                <span
+                  className="sc-htoDjs ioRxXM"
+                >
+                  edited
+                </span>
+              </styled.span>
+            </div>
+          </styled.div>
+          <styled.div
+            isPlaying={false}
+            style={
+              Object {
+                "width": "0%",
+              }
+            }
+          >
+            <div
+              className="sc-bZQynM kIXdHt"
+              style={
+                Object {
+                  "width": "0%",
+                }
+              }
+            />
+          </styled.div>
+        </div>
+      </styled.div>
+    </Clip>
+  </Manager>
+</ClipWithManager>
+`;

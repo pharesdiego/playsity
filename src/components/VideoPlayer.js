@@ -1,11 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Flex } from './Styles';
 
-const Layout = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Layout = Flex.extend`
   flex: 0.8;
 `;
 
@@ -15,41 +13,22 @@ const Video = styled.video`
   height: 100%;
   max-height: 400px;
   background-color: black;
+  box-shadow: 0px 0px 15px 1px rgba(43,43,43,0.4);
 `;
 
-class VideoPlayer extends Component {
-  shouldComponentUpdate() {
-    return true;
-  }
-  
-  state = {
-    currentTime: 0
-  }
-
-  handleTimeUpdate = (event) => {
-    this.setState({
-      currentTime: +event.target.currentTime.toFixed(1)
-    });
-  }
-
-  render() {
-    const { render, videoplayer, url } = this.props;
-    return(
-      <Fragment>
-        <Layout>
-          <Video
-            src={ videoplayer.url || url }
-            type='video/mp4'
-            onTimeUpdate={ this.handleTimeUpdate }
-            controls
-            autoPlay
-            muted
-          />
-        </Layout>
-        { render ? render(this.state.currentTime) : null }
-      </Fragment>
-    )
-  }
+const VideoPlayer = (props) => {
+  const { videoplayer, url, updateState } = props;
+  return (
+    <Layout>
+      <Video
+        src={ videoplayer.url || url }
+        type='video/mp4'
+        onTimeUpdate={ (e) => updateState('currentTime', parseInt(e.target.currentTime, 10)) }
+        controls
+        autoPlay
+      />
+    </Layout>
+  )
 }
 
 const mapStateToProps = ({ videoplayer }) => ({
