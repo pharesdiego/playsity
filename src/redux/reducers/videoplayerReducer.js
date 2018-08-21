@@ -10,7 +10,7 @@ const playlistReducer = (state = appState, action) => {
     case VIDEO_URL_UPDATE: 
       return {
         ...state,
-        url: '/video.mp4#t=' + rangeValidator(action.start, action.end)
+        url: '/playsity/video.mp4#t=' + rangeValidator(action.start, action.end)
       }
     default:
       return state;
