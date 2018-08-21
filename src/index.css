@@ -16,7 +16,7 @@ html, body, #root {
   background: linear-gradient(45deg, #681484,#ff8f8f);
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
+  padding: 0px 5px;
 }
 
 ::-webkit-scrollbar {

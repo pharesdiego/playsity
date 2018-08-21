@@ -27,24 +27,20 @@ const Container = styled.div`
 
 const Section = Flex.extend`
   flex-direction: column;
-  flex: 0.7;
   padding: 10px 20px;
   background-color: white;
 `;
 
 const Title = styled.div`
-  font-size: 3vh;
+  font-size: calc(3vh + 8px);
   text-align: center;
-`;
-
-const Input = styled.input`
-  height: 45px;
-  border: 1px solid;
 `;
 
 const Label = styled.div`
   display: flex;
   margin-bottom: 10px;
+  max-height: 42.5px;
+  min-height: 36px;
   & span {
     width: 100px;
     display: flex;
@@ -71,6 +67,7 @@ const MaxWidth = styled.div`
 `;
 
 const StyleButtons = Flex.extend`
+  margin-top: 10px;
   & button:first-child {
     margin-right: 20px;
   }
@@ -113,27 +110,27 @@ const Body = (props) => {
     <MaxWidth onInput={ (e) => updateState(e.target.name, e.target.value) }>
       <Label>
         <span>Name</span>
-        <Input
+        <input
           defaultValue={ name }
           name = 'name'/>
       </Label>
       <Label>
         <span>Start time</span>
-        <Input
+        <input
           defaultValue={ start }
           name='start'
           placeholder='in seconds'/>
       </Label>
       <Label>
         <span>End time</span>
-        <Input
+        <input
           defaultValue={ end }
           name='end'
           placeholder='in seconds'/>
       </Label>
       <Label>
         <span>Tags</span>
-        <Input
+        <input
           defaultValue={ tags }
           name='tags'
           placeholder='separeted by commas'/>

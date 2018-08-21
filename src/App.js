@@ -13,6 +13,9 @@ const Title = styled.div`
   font-family: 'Pacifico';
   text-align: center;
   font-size: calc(5vh + 8px);
+  @media (max-height: 400px) {
+    display: none;
+  }
 `;
 
 // Playlist will have its own manager, but also will receive props from another manager below

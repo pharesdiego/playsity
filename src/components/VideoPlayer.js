@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { Flex } from './Styles';
 
 const Layout = Flex.extend`
-  flex: 0.8;
+  flex: 0.75;
+  @media (max-height: 340px) {
+    display: none;
+  }
 `;
 
 const Video = styled.video`
